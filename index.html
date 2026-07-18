@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Neil Jhaveri — Advanced Full Stack Developer specializing in MERN stack, SaaS platforms, and scalable web applications." />
+  <meta property="og:title" content="Neil Jhaveri — Full Stack Developer" />
+  <meta property="og:description"
+    content="MERN stack developer building scalable SaaS platforms, CRM systems, and high-performance web products." />
+  <title>Neil Jhaveri — Full Stack Developer (MERN)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Caveat:wght@500;700&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════ DYNAMIC ISLAND NAV ═══════════ -->
+  <nav id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-island">
+      <div class="nav-left">
+        <div class="nav-avatar">NJ</div>
+        <span class="nav-name">NEIL JHAVERI</span>
+      </div>
+      <div class="nav-dots" id="nav-dots" aria-label="Menu toggle">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="nav-links" id="nav-links-desktop">
+        <a href="#work" data-section="work">Work</a>
+        <a href="#about" data-section="about">About</a>
+        <a href="#experience" data-section="experience">Experience</a>
+        <a href="#contact" data-section="contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile nav overlay -->
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section id="hero" aria-label="Hero introduction">
+    <div class="hero-sky" aria-hidden="true">
+      <div class="cloud cloud-1"></div>
+      <div class="cloud cloud-2"></div>
+      <div class="cloud cloud-3"></div>
+      <div class="cloud cloud-4"></div>
+      <div class="cloud cloud-5"></div>
+      <div class="cloud cloud-6"></div>
+    </div>
+
+    <!-- Neil Cutout Image -->
+    <div class="hero-image-wrap">
+      <img src="./neil-hero.png" alt="Neil Jhaveri" class="hero-person-img" />
+    </div>
+
+    <!-- Soft blend gradient underlay -->
+    <div class="hero-bottom-fade" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <p class="hero-greeting">👋 Hey, I'm <strong>Neil</strong></p>
+
+      <h1 class="hero-title">
+        <span class="hero-title-bold">full stack</span>
+        <em class="hero-title-script">developer</em>
+      </h1>
+
+      <p class="hero-sub">
+        Building scalable SaaS platforms &amp; web products @
+        <span class="hero-company">MERN Stack</span>
+      </p>
+    </div>
+
+    <div class="hero-footer">
+      <div class="hero-footer-left">
+        <span class="hero-footer-label">BASED IN</span>
+        <span class="hero-footer-value">📍 SURAT, GJ</span>
+      </div>
+      <div class="hero-footer-right">
+        <span class="hero-footer-label">FOCUS</span>
+        <span class="hero-footer-value">BUILD &gt; SHIP</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ DIVIDER ═══════════ -->
+  <div class="section-divider" aria-hidden="true"><span class="divider-cross">+</span></div>
+
+  <!-- ═══════════ WHAT I DO ═══════════ -->
+  <section id="whatido" aria-label="What I do">
+    <div class="container">
+      <div class="section-tag"><span class="tag-diamond">✦</span> WHAT I DO</div>
+
+      <div class="whatido-content">
+        <p class="whatido-text">
+          I turn complex, real-world problems into products people actually
+          <em class="accent-word">understand</em> — clean architectures,
+          systems <span class="faded-text">that scale, and code that quietly does the work.</span>
+        </p>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-block">
+          <div class="stat-number">5+</div>
+          <div class="stat-label">Years building</div>
+          <div class="stat-desc">SaaS platforms, CRM systems, marketplace apps &amp; high-performance web products</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-number">4+</div>
+          <div class="stat-label">Products shipped</div>
+          <div class="stat-desc">from concept to production — full-stack solutions powering real businesses</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ DIVIDER ═══════════ -->
+  <div class="section-divider" aria-hidden="true"><span class="divider-cross">+</span></div>
+
+  <!-- ═══════════ SKILLS ═══════════ -->
+  <section id="skills" aria-label="Core expertise">
+    <!-- Infinite scrolling technology marquee columns -->
+    <div class="skills-marquee-left" aria-hidden="true">
+      <div class="marquee-track marquee-up">
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" /></div>
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node" /></div>
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" /></div>
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" /></div>
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="NextJS" /></div>
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" alt="Redux" /></div>
+        <!-- Duplicate for infinite looping -->
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" /></div>
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node" /></div>
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" /></div>
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" /></div>
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="NextJS" /></div>
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" alt="Redux" /></div>
+      </div>
+    </div>
+
+    <div class="skills-marquee-right" aria-hidden="true">
+      <div class="marquee-track marquee-down">
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind" /></div>
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS" /></div>
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" /></div>
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" /></div>
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" /></div>
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg" alt="Elasticsearch" /></div>
+        <!-- Duplicate for infinite looping -->
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind" /></div>
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS" /></div>
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" /></div>
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" /></div>
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" /></div>
+        <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg" alt="Elasticsearch" /></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="section-tag"><span class="tag-diamond">✦</span> CORE EXPERTISE</div>
+      <h2 class="section-heading">tools &amp; technologies</h2>
+      <p class="section-subtext">The stack I work with daily to build production-grade applications.</p>
+
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Frontend</h3>
+          <div class="skill-pills">
+            <span class="pill">ReactJS</span>
+            <span class="pill">NextJS</span>
+            <span class="pill">TypeScript</span>
+            <span class="pill">Redux</span>
+            <span class="pill">Redux Toolkit</span>
+            <span class="pill">Zustand</span>
+            <span class="pill">MUI</span>
+            <span class="pill">Radix UI</span>
+            <span class="pill">Shadcn/UI</span>
+            <span class="pill">Tailwind CSS</span>
+            <span class="pill">Bootstrap</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Backend</h3>
+          <div class="skill-pills">
+            <span class="pill">NodeJS</span>
+            <span class="pill">ExpressJS</span>
+            <span class="pill">REST API</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Database &amp; Search</h3>
+          <div class="skill-pills">
+            <span class="pill">MongoDB</span>
+            <span class="pill">Elasticsearch</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Cloud &amp; Services</h3>
+          <div class="skill-pills">
+            <span class="pill">Firebase</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ DIVIDER ═══════════ -->
+  <div class="section-divider" aria-hidden="true"><span class="divider-cross">+</span></div>
+
+  <!-- ═══════════ SELECTED WORK ═══════════ -->
+  <section id="work" aria-label="Selected work">
+    <div class="container">
+      <div class="section-tag center"><span class="tag-diamond">✦</span> SELECTED WORK</div>
+      <h2 class="section-heading center">check out some of my work</h2>
+      <p class="section-subtext center">A few products I've helped build, and the thinking behind them.</p>
+    </div>
+
+    <div class="projects-list">
+
+      <!-- CRMOne -->
+      <article class="project-card project-blue" id="project-crmone">
+        <div class="project-card-inner">
+          <div class="project-meta">
+            <span class="project-num">01</span>
+            <span class="project-year">2024</span>
+          </div>
+          <h3 class="project-title">Enterprise CRM platform, built for scale</h3>
+          <div class="project-tags">
+            <span class="project-tag">CRM</span>
+            <span class="project-tag">SaaS</span>
+            <span class="project-tag">Full-Stack</span>
+          </div>
+          <p class="project-desc">CRMOne — a production-grade CRM with workflow automation, lead pipeline management,
+            multi-tenant RBAC, real-time dashboards, and scalable REST APIs with JWT auth.</p>
+          <div class="project-stack-row">
+            <span>NextJS</span><span>ReactJS</span><span>TypeScript</span><span>NodeJS</span><span>ExpressJS</span><span>MongoDB</span>
+          </div>
+        </div>
+        <div class="project-visual">
+          <div class="visual-crm">
+            <div class="crm-bar crm-bar-1"></div>
+            <div class="crm-bar crm-bar-2"></div>
+            <div class="crm-bar crm-bar-3"></div>
+            <div class="crm-metrics">
+              <span class="crm-m-val">99.8%</span>
+              <span class="crm-m-lbl">Uptime</span>
+            </div>
+            <div class="crm-card">
+              <div class="crm-dot-g"></div>
+              <span>Leads System Active</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Logo Arena -->
+      <article class="project-card project-green" id="project-logoarena">
+        <div class="project-card-inner">
+          <div class="project-meta">
+            <span class="project-num">02</span>
+            <span class="project-year">2023</span>
+          </div>
+          <h3 class="project-title">Global design marketplace connecting creatives</h3>
+          <div class="project-tags">
+            <span class="project-tag">Marketplace</span>
+            <span class="project-tag">E-Commerce</span>
+          </div>
+          <p class="project-desc">Logo Arena — a full-featured marketplace for logo & branding. Contest system,
+            portfolio listings, bidding engine, payments, and real-time seller/buyer dashboards.</p>
+          <div class="project-stack-row">
+            <span>ReactJS</span><span>NodeJS</span><span>ExpressJS</span><span>MongoDB</span>
+          </div>
+        </div>
+        <div class="project-visual">
+          <div class="visual-marketplace">
+            <div class="m-box m-box-1">logo</div>
+            <div class="m-box m-box-2">brand</div>
+            <div class="m-box m-box-3">contest</div>
+            <div class="m-bid">
+              <span class="m-bid-val">$499</span>
+              <span class="m-bid-lbl">Winning Bid</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Whizz Group -->
+      <article class="project-card project-purple" id="project-whizz">
+        <div class="project-card-inner">
+          <div class="project-meta">
+            <span class="project-num">03</span>
+            <span class="project-year">2022</span>
+          </div>
+          <h3 class="project-title">On-demand home services, simplified</h3>
+          <div class="project-tags">
+            <span class="project-tag">Services</span>
+            <span class="project-tag">TypeScript</span>
+          </div>
+          <p class="project-desc">Whizz Group — an on-demand home services marketplace. Booking engine, geolocation
+            matching, review system, and a type-safe TypeScript codebase.</p>
+          <div class="project-stack-row">
+            <span>ReactJS</span><span>TypeScript</span><span>NodeJS</span><span>MongoDB</span>
+          </div>
+        </div>
+        <div class="project-visual">
+          <div class="visual-services">
+            <div class="s-card">
+              <div class="s-icon">🧹</div>
+              <div class="s-info">
+                <strong>Home Cleaning</strong>
+                <span>Assigned to vendor</span>
+              </div>
+              <span class="s-status">Active</span>
+            </div>
+            <div class="s-badge">📍 3.2km away</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Aura Health -->
+      <article class="project-card project-teal" id="project-aura">
+        <div class="project-card-inner">
+          <div class="project-meta">
+            <span class="project-num">04</span>
+            <span class="project-year">2021</span>
+          </div>
+          <h3 class="project-title">Digital wellness that feels calm &amp; intuitive</h3>
+          <div class="project-tags">
+            <span class="project-tag">Health</span>
+            <span class="project-tag">Coaching</span>
+          </div>
+          <p class="project-desc">Aura Health — a digital wellness platform for coaches and clients. Session booking,
+            personalized plans, habit trackers, and a calm, accessible interface.</p>
+          <div class="project-stack-row">
+            <span>ReactJS</span><span>NodeJS</span>
+          </div>
+        </div>
+        <div class="project-visual">
+          <div class="visual-wellness">
+            <div class="w-circle">
+              <svg viewBox="0 0 36 36" class="w-ring">
+                <path class="w-ring-bg"
+                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="w-ring-stroke" stroke-dasharray="82, 100"
+                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              </svg>
+              <div class="w-score">82%</div>
+            </div>
+            <div class="w-glow">Wellness</div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ═══════════ DIVIDER ═══════════ -->
+  <div class="section-divider" aria-hidden="true"><span class="divider-cross">+</span></div>
+
+  <!-- ═══════════ ABOUT ME ═══════════ -->
+  <section id="about" aria-label="About me">
+    <div class="container">
+      <div class="about-layout">
+        <div class="about-photo-wrap">
+          <div class="about-polaroid">
+            <div class="polaroid-image">
+              <div class="polaroid-placeholder">NJ</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <div class="section-tag"><span class="tag-diamond">✦</span> ABOUT ME</div>
+          <h2 class="section-heading about-heading">a little about myself</h2>
+
+          <p class="about-text">
+            My journey into tech started with curiosity and a love for problem-solving. I've spent <strong>5+
+              years</strong> building
+            production-grade software — from SaaS platforms to marketplace apps — learning to write code that's not just
+            functional, but
+            <em>maintainable and scalable</em>.
+          </p>
+          <p class="about-text">
+            Today, I work on complex enterprise products using the MERN stack, where I enjoy turning messy requirements
+            into clean architectures.
+            I'm particularly drawn to problems at the intersection of <strong>user experience, system design, and
+              business goals</strong>.
+          </p>
+
+          <div class="about-signature">Neil.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ DIVIDER ═══════════ -->
+  <div class="section-divider" aria-hidden="true"><span class="divider-cross">+</span></div>
+
+  <!-- ═══════════ EXPERIENCE ═══════════ -->
+  <section id="experience" aria-label="Experience">
+    <div class="container">
+      <div class="section-tag center"><span class="tag-diamond">✦</span> EXPERIENCE</div>
+      <h2 class="section-heading center">the journey so far</h2>
+      <p class="section-subtext center">From SaaS platforms to enterprise CRM — building across domains, and growing.
+      </p>
+
+      <div class="exp-timeline">
+
+        <div class="exp-card exp-card-active">
+          <div class="exp-period-badge">Feb '24 – <span class="exp-present">Present</span></div>
+          <div class="exp-dot"></div>
+          <div class="exp-card-body">
+            <div class="exp-card-header">
+              <div class="exp-icon">🗂️</div>
+              <div>
+                <h3 class="exp-role">Software Developer</h3>
+                <p class="exp-company">CRMOne</p>
+              </div>
+              <span class="exp-location">📍 Remote</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>Built feature-rich CRM modules — workflow automation, lead management, pipeline tracking</li>
+              <li>Full-stack solutions with NextJS, TypeScript, NodeJS, MongoDB and REST APIs</li>
+              <li>Interactive dashboards, reporting tools, and data visualization for enterprise clients</li>
+              <li>Authentication systems and role-based access control (RBAC) for multi-tenant envs</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-period-badge">Jan '21 – Feb '24</div>
+          <div class="exp-dot"></div>
+          <div class="exp-card-body">
+            <div class="exp-card-header">
+              <div class="exp-icon">🚀</div>
+              <div>
+                <h3 class="exp-role">Software Developer</h3>
+                <p class="exp-company">La Net Team Software Solution</p>
+              </div>
+              <span class="exp-location">📍 Surat, GJ</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>Delivered multiple SaaS platforms and marketplace apps end-to-end</li>
+              <li>Scalable REST API architectures supporting thousands of concurrent users</li>
+              <li>Led full SDLC — from requirements analysis to testing and deployment</li>
+              <li>Established component libraries and standards adopted across projects</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ DIVIDER ═══════════ -->
+  <div class="section-divider" aria-hidden="true"><span class="divider-cross">+</span></div>
+
+  <!-- ═══════════ EDUCATION ═══════════ -->
+  <section id="education" aria-label="Education">
+    <div class="container">
+      <div class="section-tag center"><span class="tag-diamond">✦</span> EDUCATION</div>
+      <h2 class="section-heading center">academic background</h2>
+
+      <div class="edu-layout">
+        <!-- Degree Details Card -->
+        <div class="edu-main-card">
+          <div class="edu-crest">🎓</div>
+          <h3 class="edu-degree-title">Bachelor of Engineering</h3>
+          <p class="edu-major">Computer Engineering</p>
+          <div class="edu-school-meta">
+            <span class="school-name">Sarvajanik College of Engineering &amp; Technology</span>
+            <span class="school-loc">Surat, Gujarat, India</span>
+          </div>
+          <div class="edu-achievement-pill">🏆 First Class with Distinction</div>
+        </div>
+
+        <!-- Academic Achievements Grid -->
+        <div class="edu-metrics-grid">
+          <div class="edu-mini-card score-card">
+            <span class="edu-metric-val">8.2 / 10</span>
+            <span class="edu-metric-lbl">CGPA Cumulative</span>
+          </div>
+          <div class="edu-mini-card spec-card">
+            <span class="spec-icon">💻</span>
+            <div>
+              <strong>Systems &amp; Stack Focus</strong>
+              <p>MERN Dev, Distributed Architectures</p>
+            </div>
+          </div>
+          <div class="edu-mini-card courses-card">
+            <strong>core subjects</strong>
+            <div class="course-tags">
+              <span>Data Structures</span>
+              <span>OOPs</span>
+              <span>DBMS</span>
+              <span>Web Technology</span>
+              <span>Software Engineering</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CONTACT ═══════════ -->
+  <section id="contact" aria-label="Contact">
+    <div class="container">
+      <div class="contact-box">
+        <div class="section-tag center light"><span class="tag-diamond">✦</span> LET'S CONNECT</div>
+        <h2 class="contact-heading">let's build something<br><em>great together</em></h2>
+        <p class="contact-sub">Surat, Gujarat, India · Available for full-time &amp; contract roles</p>
+        <div class="contact-actions">
+          <a href="https://linkedin.com/in/neil-jhaveri" target="_blank" rel="noopener noreferrer" class="btn btn-white"
+            id="contact-linkedin">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+            Connect on LinkedIn
+          </a>
+          <a href="mailto:neil.jhaveri@gmail.com" class="btn btn-ghost-white" id="contact-email">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+            Send an Email
+          </a>
+        </div>
+        <div class="contact-links">
+          <a href="tel:+917229073758">📞 +91 72290 73758</a>
+          <a href="https://linkedin.com/in/neil-jhaveri" target="_blank">🔗 linkedin.com/in/neil-jhaveri</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer>
+    <p>Designed &amp; built by <a href="#hero">Neil Jhaveri</a> · Surat, India · © <span id="yr"></span></p>
+  </footer>
+
+  <script type="module" src="script.js"></script>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+
+</body>
+
+</html>
