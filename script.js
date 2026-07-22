@@ -342,35 +342,67 @@ function updateStackingCards() {
 window.addEventListener('scroll', updateStackingCards, { passive: true });
 updateStackingCards();
 
-// Card hover
+// ═══════════ PROJECT CARDS HIGH-FIDELITY TILT & SHINE ═══════════
 qsa('.project-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        animate(card, { y: -6 },
-            { duration: 0.25, type: 'spring', stiffness: 200, damping: 20 });
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+
+        // Calculate relative coordinates inside the card container
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        // Set CSS variables representing cursor position for spotlight radial gradient
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+
+        // Tilt mechanics (maximum of +/- 5 degrees on X/Y axis)
+        const px = x / rect.width;
+        const py = y / rect.height;
+        const tiltX = (py - 0.5) * -10;
+        const tiltY = (px - 0.5) * 10;
+
+        card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(-4px)`;
+        card.style.zIndex = '50';
     });
+
+    card.addEventListener('mouseenter', () => {
+        card.style.transition = 'none'; // Snappy mouse tracking feel
+        card.classList.add('focused-card');
+    });
+
     card.addEventListener('mouseleave', () => {
-        animate(card, { y: 0 },
-            { duration: 0.3, type: 'spring', stiffness: 200, damping: 25 });
+        card.classList.remove('focused-card');
+        card.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s';
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+        card.style.zIndex = '';
     });
 });
 
-// ═══════════ CHARACTER-BY-CHARACTER ABOUT TEXT REVEAL ═══════════
-function wrapChars(el) {
-    const text = el.innerHTML;
-    // Preserve HTML tags, only wrap text nodes
+// ═══════════ WORD-BY-WORD ABOUT TEXT REVEAL ═══════════
+function wrapWords(el) {
+    const html = el.innerHTML;
+    // Collapse duplicate whitespaces, tabs, and newlines first
+    const cleanHtml = html.replace(/\s+/g, ' ').trim();
+
     const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = text;
+    tempDiv.innerHTML = cleanHtml;
 
     function processNode(node) {
         if (node.nodeType === Node.TEXT_NODE) {
-            const chars = node.textContent.split('');
+            const words = node.textContent.split(' ');
             const fragment = document.createDocumentFragment();
-            chars.forEach(ch => {
+
+            words.forEach((word, idx) => {
+                if (word.trim() === '' && idx > 0) return;
+
                 const span = document.createElement('span');
-                span.className = 'char';
-                span.textContent = ch === ' ' ? '\u00A0' : ch;
-                if (ch === ' ') span.style.opacity = '1';
+                span.className = 'word';
+                span.textContent = word;
                 fragment.appendChild(span);
+
+                if (idx < words.length - 1) {
+                    fragment.appendChild(document.createTextNode(' '));
+                }
             });
             node.parentNode.replaceChild(fragment, node);
         } else if (node.nodeType === Node.ELEMENT_NODE) {
@@ -386,41 +418,339 @@ function wrapChars(el) {
 }
 
 qsa('.about-animated-text').forEach(para => {
-    wrapChars(para);
-    const chars = qsa('.char', para);
+    wrapWords(para);
+    const words = qsa('.word', para);
 
     const obs = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                chars.forEach((ch, i) => {
-                    setTimeout(() => ch.classList.add('revealed'), i * 18);
+                words.forEach((w, i) => {
+                    setTimeout(() => w.classList.add('revealed'), i * 25);
                 });
                 obs.unobserve(para);
             }
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -10% 0px' });
+    }, { threshold: 0.05, rootMargin: '0px 0px -5% 0px' });
 
     obs.observe(para);
 });
 
-// ═══════════ ABOUT ═══════════
-inView('.about-polaroid', (info) => {
-    animate(info.target, { opacity: [0, 1], rotate: ['-8deg', '-3deg'], scale: [0.9, 1] },
-        { duration: 0.7, type: 'spring', stiffness: 70, damping: 16 });
+// Staged Bento Grid Highlights Reveal
+const bentoBlocks = qsa('.highlight-bento');
+const bentoObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            bentoBlocks.forEach((block, i) => {
+                setTimeout(() => block.classList.add('revealed'), i * 150);
+            });
+            bentoObs.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+const highlightsGrid = qs('.about-highlights-grid');
+if (highlightsGrid) {
+    bentoObs.observe(highlightsGrid);
+}
+
+// ═══════════ ABOUT PROFILE CARD MOUSE AND ENTRY INTERACTIONS ═══════════
+const profileCard = qs('.about-profile-card');
+if (profileCard) {
+    profileCard.addEventListener('mousemove', (e) => {
+        const rect = profileCard.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        profileCard.style.setProperty('--mouse-x', `${x}px`);
+        profileCard.style.setProperty('--mouse-y', `${y}px`);
+    });
+}
+
+inView('.about-profile-card', (info) => {
+    animate(info.target, { opacity: [0, 1], scale: [0.93, 1], y: [15, 0] },
+        { duration: 0.7, type: 'spring', stiffness: 90, damping: 18 });
 });
 
 inView('.about-badge', (info) => {
-    animate(info.target, { opacity: [0, 1], x: [-20, 0] },
-        { duration: 0.5, easing: 'ease-out', delay: 0.3 });
+    animate(info.target, { opacity: [0, 1], y: [12, 0] },
+        { duration: 0.5, easing: 'ease-out', delay: 0.35 });
 });
 
-// ═══════════ EXPERIENCE CARDS ═══════════
-qsa('.exp-card').forEach((card, i) => {
-    inView(card, () => {
-        animate(card, { opacity: [0, 1], y: [30, 0] },
-            { duration: 0.6, easing: 'ease-out', delay: i * 0.12 });
-    }, { amount: 0.2 });
+// ═══════════ EXPERIENCE SECTION INTERACTIONS ═══════════
+
+// 1. Data mapping for timeline tooltip
+const expData = {
+    crmone: {
+        company: "CRMOne",
+        role: "Software Developer · Remote",
+        period: "Feb 2024 to Present",
+        desc: "Building advanced SaaS CRM platforms with high security and robust workflows.",
+        bullets: [
+            "Built feature-rich CRM modules — workflow automation, lead management, pipeline tracking",
+            "Full-stack solutions with NextJS, TypeScript, NodeJS, MongoDB and REST APIs",
+            "Interactive dashboards, reporting tools, and data visualization for enterprise clients",
+            "Authentication systems and role-based access control (RBAC) for multi-tenant envs"
+        ]
+    },
+    lanet: {
+        company: "La Net Team Software Solution",
+        role: "Software Developer · Surat, GJ",
+        period: "Jan 2021 to Feb 2024",
+        desc: "Developed and shipped customer-centric SaaS portals and marketplace solutions.",
+        bullets: [
+            "Delivered multiple SaaS platforms and marketplace apps end-to-end",
+            "Scalable REST API architectures supporting thousands of concurrent users",
+            "Led full SDLC — from requirements analysis to testing and deployment",
+            "Established component libraries and standards adopted across projects"
+        ]
+    },
+    scet: {
+        company: "Sarvajanik College of Engineering",
+        role: "Computer Engineering Student · Surat",
+        period: "Jul 2017 to Jul 2021",
+        desc: "Academic foundation specializing in web technologies, data structures, and database engines.",
+        bullets: [
+            "Graduated with First Class with Distinction (CGPA: 8.2/10)",
+            "Built university portals, booking management tools, and specialized web stacks",
+            "Excelled in core coursework including Data Structures, OOPs, and DBMS"
+        ]
+    }
+};
+
+// 2. Scroll Reveal animations for Accordion Items
+qsa('.exp-list-item').forEach((item, i) => {
+    inView(item, () => {
+        animate(item, { opacity: [0, 1], y: [24, 0] },
+            { duration: 0.55, easing: 'ease-out', delay: i * 0.1 });
+    }, { amount: 0.15 });
 });
+
+// 3. Accordion Toggle Logic
+qsa('.exp-list-item').forEach(item => {
+    const header = item.querySelector('.exp-list-item-header');
+    const content = item.querySelector('.exp-list-item-content');
+    const caret = item.querySelector('.exp-list-toggle-btn');
+
+    if (item.classList.contains('init-expanded')) {
+        item.classList.add('active');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        if (caret) caret.style.transform = 'rotate(180deg)';
+    }
+
+    header.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+
+        qsa('.exp-list-item').forEach(otherItem => {
+            if (otherItem !== item && otherItem.classList.contains('active')) {
+                otherItem.classList.remove('active');
+                otherItem.querySelector('.exp-list-item-content').style.maxHeight = '0px';
+                const otherCaret = otherItem.querySelector('.exp-list-toggle-btn');
+                if (otherCaret) otherCaret.style.transform = 'rotate(0deg)';
+            }
+        });
+
+        if (isActive) {
+            item.classList.remove('active');
+            content.style.maxHeight = '0px';
+            if (caret) caret.style.transform = 'rotate(0deg)';
+        } else {
+            item.classList.add('active');
+            content.style.maxHeight = content.scrollHeight + 'px';
+            if (caret) caret.style.transform = 'rotate(180deg)';
+        }
+    });
+
+    // Resize listener to recalculate expanded content height if viewport changes size
+    window.addEventListener('resize', () => {
+        if (item.classList.contains('active')) {
+            content.style.maxHeight = content.scrollHeight + 'px';
+        }
+    });
+});
+
+// 4. View Toggle Switch Logic (List vs Timeline)
+const listBtn = qs('[data-view="list"]');
+const timelineBtn = qs('[data-view="timeline"]');
+const toggleSwitch = qs('.exp-toggle-switch');
+const listView = qs('#exp-list-view');
+const timelineView = qs('#exp-timeline-view');
+
+if (listBtn && timelineBtn && toggleSwitch && listView && timelineView) {
+    listBtn.addEventListener('click', () => {
+        if (!listBtn.classList.contains('active')) {
+            listBtn.classList.add('active');
+            timelineBtn.classList.remove('active');
+            toggleSwitch.classList.remove('view-timeline');
+
+            animate(timelineView, { opacity: 0, y: 15 }, { duration: 0.2 }).then(() => {
+                timelineView.style.display = 'none';
+                listView.style.display = 'block';
+                animate(listView, { opacity: [0, 1], y: [15, 0] }, { duration: 0.3 });
+            });
+        }
+    });
+
+    timelineBtn.addEventListener('click', () => {
+        if (!timelineBtn.classList.contains('active')) {
+            timelineBtn.classList.add('active');
+            listBtn.classList.remove('active');
+            toggleSwitch.classList.add('view-timeline');
+
+            const tryThis = qs('.try-this-hint');
+            if (tryThis) {
+                animate(tryThis, { opacity: 0, scale: 0.8 }, { duration: 0.2 }).then(() => {
+                    tryThis.style.display = 'none';
+                });
+            }
+
+            animate(listView, { opacity: 0, y: 15 }, { duration: 0.2 }).then(() => {
+                listView.style.display = 'none';
+                timelineView.style.display = 'block';
+                scrollTimelineToNow(); // Scroll to the "now" marker automatically on reveal
+                animate(timelineView, { opacity: [0, 1], y: [15, 0] }, { duration: 0.3 });
+            });
+        }
+    });
+}
+
+// Helper to center the timeline on the "now" marker
+function scrollTimelineToNow() {
+    const sliderContainer = qs('#timeline-drag-container');
+    const nowMarker = qs('.timeline-now-marker');
+    if (sliderContainer && nowMarker) {
+        const markerOffset = nowMarker.offsetLeft;
+        const containerWidth = sliderContainer.clientWidth;
+        sliderContainer.scrollLeft = markerOffset - (containerWidth / 2);
+    }
+}
+
+// 5. Sidebar scroll/drag timeline track logic
+const timelineDrag = qs('#timeline-drag-container');
+if (timelineDrag) {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    timelineDrag.addEventListener('mousedown', (e) => {
+        isDown = true;
+        timelineDrag.classList.add('dragging');
+        startX = e.pageX - timelineDrag.offsetLeft;
+        scrollLeft = timelineDrag.scrollLeft;
+    });
+
+    timelineDrag.addEventListener('mouseleave', () => {
+        isDown = false;
+        timelineDrag.classList.remove('dragging');
+    });
+
+    timelineDrag.addEventListener('mouseup', () => {
+        isDown = false;
+        timelineDrag.classList.remove('dragging');
+    });
+
+    timelineDrag.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - timelineDrag.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        timelineDrag.scrollLeft = scrollLeft - walk;
+    });
+
+    // Touch interface
+    timelineDrag.addEventListener('touchstart', (e) => {
+        isDown = true;
+        startX = e.touches[0].pageX - timelineDrag.offsetLeft;
+        scrollLeft = timelineDrag.scrollLeft;
+    }, { passive: true });
+
+    timelineDrag.addEventListener('touchend', () => {
+        isDown = false;
+        timelineDrag.classList.remove('dragging');
+    }, { passive: true });
+
+    timelineDrag.addEventListener('touchmove', (e) => {
+        if (!isDown) return;
+        const x = e.touches[0].pageX - timelineDrag.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        timelineDrag.scrollLeft = scrollLeft - walk;
+    }, { passive: true });
+}
+
+// 6. Interactive timeline tooltip logic
+const timelineCards = qsa('.timeline-item-card');
+const timelineTooltip = qs('#timeline-tooltip');
+
+if (timelineTooltip && timelineCards.length) {
+    timelineCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            const id = card.dataset.id;
+            const data = expData[id];
+            if (!data) return;
+
+            // Populate details
+            qs('#tooltip-company').textContent = data.company;
+            qs('#tooltip-period').textContent = data.period;
+            qs('#tooltip-role').textContent = data.role;
+            qs('#tooltip-desc').textContent = data.desc;
+
+            const bulletsList = qs('#tooltip-bullets');
+            bulletsList.innerHTML = '';
+            data.bullets.forEach(sentence => {
+                const li = document.createElement('li');
+                li.textContent = sentence;
+                bulletsList.appendChild(li);
+            });
+
+            // Add custom active outline styling
+            card.classList.add('active-card');
+
+            // Calculate hover coordinate positions on parent canvas
+            const cardLeft = card.offsetLeft;
+            const cardWidth = card.offsetWidth;
+            const cardTop = card.offsetTop;
+            const cardHeight = card.offsetHeight;
+
+            // Prevent tooltip content from being clipped by viewport container boundary
+            const container = qs('#timeline-drag-container');
+            let tooltipLeft = cardLeft + (cardWidth / 2);
+
+            if (container) {
+                const containerLeft = container.scrollLeft;
+                const containerWidth = container.clientWidth;
+                const tooltipHalfWidth = 160; // 320px tooltip width / 2
+
+                const minLeft = containerLeft + tooltipHalfWidth + 12;
+                const maxLeft = containerLeft + containerWidth - tooltipHalfWidth - 12;
+
+                if (tooltipLeft < minLeft) {
+                    tooltipLeft = minLeft;
+                } else if (tooltipLeft > maxLeft) {
+                    tooltipLeft = maxLeft;
+                }
+            }
+
+            // Set coordinates
+            timelineTooltip.style.left = `${tooltipLeft}px`;
+
+            // Choose top position so it rests perfectly above or below the card row
+            if (cardTop < 100) {
+                // First card row: show tooltip below the card to avoid clipping top boundary
+                timelineTooltip.style.top = `${cardTop + cardHeight + 10}px`;
+                timelineTooltip.style.transform = 'translate(-50%, 0)';
+            } else {
+                // Lower rows: show tooltip above
+                timelineTooltip.style.top = `${cardTop - 10}px`;
+                timelineTooltip.style.transform = 'translate(-50%, -100%)';
+            }
+
+            timelineTooltip.classList.add('visible');
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.classList.remove('active-card');
+            timelineTooltip.classList.remove('visible');
+        });
+    });
+}
 
 // ═══════════ EDUCATION ═══════════
 inView('.edu-layout', (info) => {
