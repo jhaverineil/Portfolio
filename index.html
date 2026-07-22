@@ -20,6 +20,10 @@
 
 <body>
 
+  <!-- ═══════════ CURSOR FOLLOWER ═══════════ -->
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
   <!-- ═══════════ DYNAMIC ISLAND NAV ═══════════ -->
   <nav id="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-island">
@@ -49,46 +53,313 @@
 
   <!-- ═══════════ HERO ═══════════ -->
   <section id="hero" aria-label="Hero introduction">
-    <div class="hero-sky" aria-hidden="true">
-      <div class="cloud cloud-1"></div>
-      <div class="cloud cloud-2"></div>
-      <div class="cloud cloud-3"></div>
-      <div class="cloud cloud-4"></div>
-      <div class="cloud cloud-5"></div>
-      <div class="cloud cloud-6"></div>
-    </div>
 
-    <!-- Soft blend gradient underlay -->
-    <div class="hero-bottom-fade" aria-hidden="true"></div>
+    <!-- Dot grid decorations -->
+    <div class="hero-dot-grid hero-dot-grid-tl" aria-hidden="true"></div>
+    <div class="hero-dot-grid hero-dot-grid-tr" aria-hidden="true"></div>
 
-    <div class="hero-inner">
-      <p class="hero-greeting">👋 Hey, I'm <strong>Neil</strong></p>
+    <div class="hero-two-col">
 
-      <h1 class="hero-title">
-        <span class="hero-title-bold">full stack</span>
-        <em class="hero-title-script">developer</em>
-      </h1>
+      <!-- LEFT: Content -->
+      <div class="hero-left">
+        <p class="hero-greeting-new">Hi, there!</p>
 
-      <p class="hero-sub">
-        Building scalable SaaS platforms &amp; web products @
-        <span class="hero-company">MERN Stack</span>
-      </p>
-    </div>
+        <h1 class="hero-title-new">
+          <span class="hero-accent">NEIL</span> IS HERE TO<br>
+          BUILD YOUR<br>
+          <span class="hero-title-typewrite" id="hero-typewrite-word">PRODUCTS</span>
+        </h1>
 
-    <div class="hero-footer">
-      <div class="hero-footer-left">
-        <span class="hero-footer-label">BASED IN</span>
-        <span class="hero-footer-value">📍 SURAT, GJ</span>
+        <p class="hero-sub-new">
+          I am here to help you build production-grade SaaS platforms,<br class="hide-mobile"> scalable APIs &amp;
+          high-performance web applications.
+        </p>
+
+        <div class="hero-cta-row">
+          <a href="#contact" class="btn-hero-primary" id="hero-cta-btn" data-magnetic>
+            <span>Let's Discuss</span>
+          </a>
+          <a href="#work" class="btn-hero-ghost">
+            <span>View Work</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Services strip -->
+        <div class="hero-services-strip">
+          <div class="hero-service-tag">✦ WHAT I DO</div>
+          <div class="hero-services-row">
+            <div class="hero-service-item">
+              <div class="hero-service-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="2" y="3" width="20" height="14" rx="2" />
+                  <path d="M8 21h8M12 17v4" />
+                </svg>
+              </div>
+              <div>
+                <strong>Full-Stack Dev</strong>
+                <p>React, Node, MongoDB end-to-end</p>
+              </div>
+            </div>
+            <div class="hero-service-item">
+              <div class="hero-service-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                  <path d="M2 17l10 5 10-5" />
+                  <path d="M2 12l10 5 10-5" />
+                </svg>
+              </div>
+              <div>
+                <strong>SaaS Platforms</strong>
+                <p>Scalable products from idea to ship</p>
+              </div>
+            </div>
+            <div class="hero-service-item">
+              <div class="hero-service-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <circle cx="12" cy="12" r="3" />
+                  <path
+                    d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+                </svg>
+              </div>
+              <div>
+                <strong>CRM &amp; Enterprise</strong>
+                <p>Workflow automation + dashboards</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="hero-footer-right">
-        <span class="hero-footer-label">FOCUS</span>
-        <span class="hero-footer-value">BUILD &gt; SHIP</span>
+
+      <!-- RIGHT: Blob + Person visual -->
+      <div class="hero-right">
+        <!-- Dot grid top-right -->
+        <div class="hero-dot-grid hero-dot-grid-inner" aria-hidden="true"></div>
+
+        <!-- Main large blob -->
+        <div class="hero-blob hero-blob-main" aria-hidden="true"></div>
+        <!-- Secondary smaller blob -->
+        <div class="hero-blob hero-blob-secondary" aria-hidden="true"></div>
+
+        <!-- Person / Avatar placeholder -->
+        <div class="hero-person-wrap">
+          <div class="hero-avatar-circle">
+            <span class="hero-avatar-initials">NJ</span>
+            <div class="hero-avatar-glow" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <!-- Floating stat cards -->
+        <div class="hero-float-card hero-float-projects">
+          <div class="hero-float-icon" style="background:#2563eb;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5">
+              <rect x="3" y="3" width="7" height="7" rx="1" />
+              <rect x="14" y="3" width="7" height="7" rx="1" />
+              <rect x="3" y="14" width="7" height="7" rx="1" />
+              <rect x="14" y="14" width="7" height="7" rx="1" />
+            </svg>
+          </div>
+          <div>
+            <div class="hero-float-val">4+</div>
+            <div class="hero-float-lbl">Products</div>
+          </div>
+        </div>
+
+        <div class="hero-float-card hero-float-rating">
+          <div class="hero-float-star">★</div>
+          <div>
+            <div class="hero-float-val">5+</div>
+            <div class="hero-float-lbl">Yrs Experience</div>
+          </div>
+        </div>
+
+        <div class="hero-float-card hero-float-role">
+          <div class="hero-float-avatar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </div>
+          <div>
+            <div class="hero-float-role-name">Full Stack Dev</div>
+            <div class="hero-float-lbl">5 years</div>
+          </div>
+        </div>
       </div>
+
     </div>
   </section>
 
-  <!-- ═══════════ DIVIDER ═══════════ -->
-  <div class="section-divider" aria-hidden="true"><span class="divider-cross">+</span></div>
+  <!-- ═══════════ SCROLL MARQUEE SECTION ═══════════ -->
+  <section id="marquee-section" aria-label="Tech showcase" class="marquee-section">
+    <div class="marquee-section-header">
+      <div class="section-tag center"><span class="tag-diamond">✦</span> TRUSTED TECHNOLOGIES</div>
+    </div>
+    <!-- Row 1: scrolls right on scroll -->
+    <div class="scroll-marquee-wrap" data-direction="right">
+      <div class="scroll-marquee-track" id="marquee-row-1">
+        <!-- Duplicated for seamless loop -->
+        <div class="scroll-marquee-item">
+          <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+              alt="React" /><span>React</span></div>
+        </div>
+        <div class="scroll-marquee-item">
+          <div class="tech-card"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+              alt="Next.js" /><span>Next.js</span></div>
+        </div>
+        <div class="scroll-marquee-item">
+          <div class="tech-card"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+              alt="TypeScript" /><span>TypeScript</span></div>
+        </div>
+        <div class="scroll-marquee-item">
+          <div class="tech-card"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+              alt="Node.js" /><span>Node.js</span></div>
+        </div>
+        <div class="scroll-marquee-item">
+          <div class="tech-card"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+              alt="MongoDB" /><span>MongoDB</span></div>
+        </div>
+        <div class="scroll-marquee-item">
+          <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg"
+              alt="Redux" /><span>Redux</span></div>
+        </div>
+        <div class="scroll-marquee-item">
+          <div class="tech-card"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+              alt="Tailwind" /><span>Tailwind</span></div>
+        </div>
+        <div class="scroll-marquee-item">
+          <div class="tech-card"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+              alt="JavaScript" /><span>JavaScript</span></div>
+        </div>
+        <!-- Duplicate set -->
+        <div class="scroll-marquee-item" aria-hidden="true">
+          <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+              alt="React" /><span>React</span></div>
+        </div>
+        <div class="scroll-marquee-item" aria-hidden="true">
+          <div class="tech-card"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+              alt="Next.js" /><span>Next.js</span></div>
+        </div>
+        <div class="scroll-marquee-item" aria-hidden="true">
+          <div class="tech-card"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+              alt="TypeScript" /><span>TypeScript</span></div>
+        </div>
+        <div class="scroll-marquee-item" aria-hidden="true">
+          <div class="tech-card"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+              alt="Node.js" /><span>Node.js</span></div>
+        </div>
+        <div class="scroll-marquee-item" aria-hidden="true">
+          <div class="tech-card"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+              alt="MongoDB" /><span>MongoDB</span></div>
+        </div>
+        <div class="scroll-marquee-item" aria-hidden="true">
+          <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg"
+              alt="Redux" /><span>Redux</span></div>
+        </div>
+        <div class="scroll-marquee-item" aria-hidden="true">
+          <div class="tech-card"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+              alt="Tailwind" /><span>Tailwind</span></div>
+        </div>
+        <div class="scroll-marquee-item" aria-hidden="true">
+          <div class="tech-card"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+              alt="JavaScript" /><span>JavaScript</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Row 2: scrolls left on scroll -->
+    <div class="scroll-marquee-wrap" data-direction="left">
+      <div class="scroll-marquee-track" id="marquee-row-2">
+        <div class="scroll-marquee-item">
+          <div class="tech-card"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+              alt="Express" /><span>Express</span></div>
+        </div>
+        <div class="scroll-marquee-item">
+          <div class="tech-card"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+              alt="Firebase" /><span>Firebase</span></div>
+        </div>
+        <div class="scroll-marquee-item">
+          <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+              alt="HTML5" /><span>HTML5</span></div>
+        </div>
+        <div class="scroll-marquee-item">
+          <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+              alt="CSS3" /><span>CSS3</span></div>
+        </div>
+        <div class="scroll-marquee-item">
+          <div class="tech-card"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg"
+              alt="Elasticsearch" /><span>Elasticsearch</span></div>
+        </div>
+        <div class="scroll-marquee-item">
+          <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+              alt="Git" /><span>Git</span></div>
+        </div>
+        <div class="scroll-marquee-item">
+          <div class="tech-card"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+              alt="VS Code" /><span>VS Code</span></div>
+        </div>
+        <div class="scroll-marquee-item">
+          <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+              alt="Figma" /><span>Figma</span></div>
+        </div>
+        <!-- Duplicate set -->
+        <div class="scroll-marquee-item" aria-hidden="true">
+          <div class="tech-card"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+              alt="Express" /><span>Express</span></div>
+        </div>
+        <div class="scroll-marquee-item" aria-hidden="true">
+          <div class="tech-card"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+              alt="Firebase" /><span>Firebase</span></div>
+        </div>
+        <div class="scroll-marquee-item" aria-hidden="true">
+          <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+              alt="HTML5" /><span>HTML5</span></div>
+        </div>
+        <div class="scroll-marquee-item" aria-hidden="true">
+          <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+              alt="CSS3" /><span>CSS3</span></div>
+        </div>
+        <div class="scroll-marquee-item" aria-hidden="true">
+          <div class="tech-card"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg"
+              alt="Elasticsearch" /><span>Elasticsearch</span></div>
+        </div>
+        <div class="scroll-marquee-item" aria-hidden="true">
+          <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+              alt="Git" /><span>Git</span></div>
+        </div>
+        <div class="scroll-marquee-item" aria-hidden="true">
+          <div class="tech-card"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+              alt="VS Code" /><span>VS Code</span></div>
+        </div>
+        <div class="scroll-marquee-item" aria-hidden="true">
+          <div class="tech-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+              alt="Figma" /><span>Figma</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ═══════════ WHAT I DO ═══════════ -->
   <section id="whatido" aria-label="What I do">
@@ -96,21 +367,21 @@
       <div class="section-tag"><span class="tag-diamond">✦</span> WHAT I DO</div>
 
       <div class="whatido-content">
-        <p class="whatido-text">
+        <p class="whatido-text" id="whatido-animated-text">
           I turn complex, real-world problems into products people actually
           <em class="accent-word">understand</em> — clean architectures,
-          systems <span class="faded-text">that scale, and code that quietly does the work.</span>
+          <span class="faded-text">systems that scale, and code that quietly does the work.</span>
         </p>
       </div>
 
       <div class="stats-row">
         <div class="stat-block">
-          <div class="stat-number">5+</div>
+          <div class="stat-number" data-count="5">0</div>
           <div class="stat-label">Years building</div>
           <div class="stat-desc">SaaS platforms, CRM systems, marketplace apps &amp; high-performance web products</div>
         </div>
         <div class="stat-block">
-          <div class="stat-number">4+</div>
+          <div class="stat-number" data-count="4">0</div>
           <div class="stat-label">Products shipped</div>
           <div class="stat-desc">from concept to production — full-stack solutions powering real businesses</div>
         </div>
@@ -123,7 +394,7 @@
 
   <!-- ═══════════ SKILLS ═══════════ -->
   <section id="skills" aria-label="Core expertise">
-    <!-- Infinite scrolling technology marquee columns -->
+    <!-- Infinite scrolling technology marquee columns (vertical bg) -->
     <div class="skills-marquee-left" aria-hidden="true">
       <div class="marquee-track marquee-up">
         <div class="marquee-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
@@ -194,7 +465,7 @@
 
     <div class="container">
       <div class="section-tag"><span class="tag-diamond">✦</span> CORE EXPERTISE</div>
-      <h2 class="section-heading">tools &amp; technologies</h2>
+      <h2 class="section-heading">Tools &amp; Technologies</h2>
       <p class="section-subtext">The stack I work with daily to build production-grade applications.</p>
 
       <div class="skills-grid">
@@ -242,7 +513,7 @@
   <!-- ═══════════ DIVIDER ═══════════ -->
   <div class="section-divider" aria-hidden="true"><span class="divider-cross">+</span></div>
 
-  <!-- ═══════════ SELECTED WORK ═══════════ -->
+  <!-- ═══════════ SELECTED WORK (STICKY-STACKING CARDS) ═══════════ -->
   <section id="work" aria-label="Selected work">
     <div class="container">
       <div class="section-tag center"><span class="tag-diamond">✦</span> SELECTED WORK</div>
@@ -250,141 +521,150 @@
       <p class="section-subtext center">A few products I've helped build, and the thinking behind them.</p>
     </div>
 
-    <div class="projects-list">
+    <!-- Sticky stacking cards container -->
+    <div class="stacking-cards-container">
 
       <!-- CRMOne -->
-      <article class="project-card project-blue" id="project-crmone">
-        <div class="project-card-inner">
-          <div class="project-meta">
-            <span class="project-num">01</span>
-            <span class="project-year">2024</span>
-          </div>
-          <h3 class="project-title">Enterprise CRM platform, built for scale</h3>
-          <div class="project-tags">
-            <span class="project-tag">CRM</span>
-            <span class="project-tag">SaaS</span>
-            <span class="project-tag">Full-Stack</span>
-          </div>
-          <p class="project-desc">CRMOne — a production-grade CRM with workflow automation, lead pipeline management,
-            multi-tenant RBAC, real-time dashboards, and scalable REST APIs with JWT auth.</p>
-          <div class="project-stack-row">
-            <span>NextJS</span><span>ReactJS</span><span>TypeScript</span><span>NodeJS</span><span>ExpressJS</span><span>MongoDB</span>
-          </div>
-        </div>
-        <div class="project-visual">
-          <div class="visual-crm">
-            <div class="crm-bar crm-bar-1"></div>
-            <div class="crm-bar crm-bar-2"></div>
-            <div class="crm-bar crm-bar-3"></div>
-            <div class="crm-metrics">
-              <span class="crm-m-val">99.8%</span>
-              <span class="crm-m-lbl">Uptime</span>
+      <div class="stacking-card-wrap">
+        <article class="project-card project-blue stacking-card" id="project-crmone" data-index="0">
+          <div class="project-card-inner">
+            <div class="project-meta">
+              <span class="project-num">01</span>
+              <span class="project-year">2024</span>
             </div>
-            <div class="crm-card">
-              <div class="crm-dot-g"></div>
-              <span>Leads System Active</span>
+            <h3 class="project-title">Enterprise CRM platform, built for scale</h3>
+            <div class="project-tags">
+              <span class="project-tag">CRM</span>
+              <span class="project-tag">SaaS</span>
+              <span class="project-tag">Full-Stack</span>
+            </div>
+            <p class="project-desc">CRMOne — a production-grade CRM with workflow automation, lead pipeline management,
+              multi-tenant RBAC, real-time dashboards, and scalable REST APIs with JWT auth.</p>
+            <div class="project-stack-row">
+              <span>NextJS</span><span>ReactJS</span><span>TypeScript</span><span>NodeJS</span><span>ExpressJS</span><span>MongoDB</span>
             </div>
           </div>
-        </div>
-      </article>
+          <div class="project-visual">
+            <div class="visual-crm">
+              <div class="crm-bar crm-bar-1"></div>
+              <div class="crm-bar crm-bar-2"></div>
+              <div class="crm-bar crm-bar-3"></div>
+              <div class="crm-metrics">
+                <span class="crm-m-val">99.8%</span>
+                <span class="crm-m-lbl">Uptime</span>
+              </div>
+              <div class="crm-card">
+                <div class="crm-dot-g"></div>
+                <span>Leads System Active</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
 
       <!-- Logo Arena -->
-      <article class="project-card project-green" id="project-logoarena">
-        <div class="project-card-inner">
-          <div class="project-meta">
-            <span class="project-num">02</span>
-            <span class="project-year">2023</span>
-          </div>
-          <h3 class="project-title">Global design marketplace connecting creatives</h3>
-          <div class="project-tags">
-            <span class="project-tag">Marketplace</span>
-            <span class="project-tag">E-Commerce</span>
-          </div>
-          <p class="project-desc">Logo Arena — a full-featured marketplace for logo & branding. Contest system,
-            portfolio listings, bidding engine, payments, and real-time seller/buyer dashboards.</p>
-          <div class="project-stack-row">
-            <span>ReactJS</span><span>NodeJS</span><span>ExpressJS</span><span>MongoDB</span>
-          </div>
-        </div>
-        <div class="project-visual">
-          <div class="visual-marketplace">
-            <div class="m-box m-box-1">logo</div>
-            <div class="m-box m-box-2">brand</div>
-            <div class="m-box m-box-3">contest</div>
-            <div class="m-bid">
-              <span class="m-bid-val">$499</span>
-              <span class="m-bid-lbl">Winning Bid</span>
+      <div class="stacking-card-wrap">
+        <article class="project-card project-green stacking-card" id="project-logoarena" data-index="1">
+          <div class="project-card-inner">
+            <div class="project-meta">
+              <span class="project-num">02</span>
+              <span class="project-year">2023</span>
+            </div>
+            <h3 class="project-title">Global design marketplace connecting creatives</h3>
+            <div class="project-tags">
+              <span class="project-tag">Marketplace</span>
+              <span class="project-tag">E-Commerce</span>
+            </div>
+            <p class="project-desc">Logo Arena — a full-featured marketplace for logo &amp; branding. Contest system,
+              portfolio listings, bidding engine, payments, and real-time seller/buyer dashboards.</p>
+            <div class="project-stack-row">
+              <span>ReactJS</span><span>NodeJS</span><span>ExpressJS</span><span>MongoDB</span>
             </div>
           </div>
-        </div>
-      </article>
+          <div class="project-visual">
+            <div class="visual-marketplace">
+              <div class="m-box m-box-1">logo</div>
+              <div class="m-box m-box-2">brand</div>
+              <div class="m-box m-box-3">contest</div>
+              <div class="m-bid">
+                <span class="m-bid-val">$499</span>
+                <span class="m-bid-lbl">Winning Bid</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
 
       <!-- Whizz Group -->
-      <article class="project-card project-purple" id="project-whizz">
-        <div class="project-card-inner">
-          <div class="project-meta">
-            <span class="project-num">03</span>
-            <span class="project-year">2022</span>
-          </div>
-          <h3 class="project-title">On-demand home services, simplified</h3>
-          <div class="project-tags">
-            <span class="project-tag">Services</span>
-            <span class="project-tag">TypeScript</span>
-          </div>
-          <p class="project-desc">Whizz Group — an on-demand home services marketplace. Booking engine, geolocation
-            matching, review system, and a type-safe TypeScript codebase.</p>
-          <div class="project-stack-row">
-            <span>ReactJS</span><span>TypeScript</span><span>NodeJS</span><span>MongoDB</span>
-          </div>
-        </div>
-        <div class="project-visual">
-          <div class="visual-services">
-            <div class="s-card">
-              <div class="s-icon">🧹</div>
-              <div class="s-info">
-                <strong>Home Cleaning</strong>
-                <span>Assigned to vendor</span>
-              </div>
-              <span class="s-status">Active</span>
+      <div class="stacking-card-wrap">
+        <article class="project-card project-purple stacking-card" id="project-whizz" data-index="2">
+          <div class="project-card-inner">
+            <div class="project-meta">
+              <span class="project-num">03</span>
+              <span class="project-year">2022</span>
             </div>
-            <div class="s-badge">📍 3.2km away</div>
+            <h3 class="project-title">On-demand home services, simplified</h3>
+            <div class="project-tags">
+              <span class="project-tag">Services</span>
+              <span class="project-tag">TypeScript</span>
+            </div>
+            <p class="project-desc">Whizz Group — an on-demand home services marketplace. Booking engine, geolocation
+              matching, review system, and a type-safe TypeScript codebase.</p>
+            <div class="project-stack-row">
+              <span>ReactJS</span><span>TypeScript</span><span>NodeJS</span><span>MongoDB</span>
+            </div>
           </div>
-        </div>
-      </article>
+          <div class="project-visual">
+            <div class="visual-services">
+              <div class="s-card">
+                <div class="s-icon">🧹</div>
+                <div class="s-info">
+                  <strong>Home Cleaning</strong>
+                  <span>Assigned to vendor</span>
+                </div>
+                <span class="s-status">Active</span>
+              </div>
+              <div class="s-badge">📍 3.2km away</div>
+            </div>
+          </div>
+        </article>
+      </div>
 
       <!-- Aura Health -->
-      <article class="project-card project-teal" id="project-aura">
-        <div class="project-card-inner">
-          <div class="project-meta">
-            <span class="project-num">04</span>
-            <span class="project-year">2021</span>
-          </div>
-          <h3 class="project-title">Digital wellness that feels calm &amp; intuitive</h3>
-          <div class="project-tags">
-            <span class="project-tag">Health</span>
-            <span class="project-tag">Coaching</span>
-          </div>
-          <p class="project-desc">Aura Health — a digital wellness platform for coaches and clients. Session booking,
-            personalized plans, habit trackers, and a calm, accessible interface.</p>
-          <div class="project-stack-row">
-            <span>ReactJS</span><span>NodeJS</span>
-          </div>
-        </div>
-        <div class="project-visual">
-          <div class="visual-wellness">
-            <div class="w-circle">
-              <svg viewBox="0 0 36 36" class="w-ring">
-                <path class="w-ring-bg"
-                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                <path class="w-ring-stroke" stroke-dasharray="82, 100"
-                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-              </svg>
-              <div class="w-score">82%</div>
+      <div class="stacking-card-wrap">
+        <article class="project-card project-teal stacking-card" id="project-aura" data-index="3">
+          <div class="project-card-inner">
+            <div class="project-meta">
+              <span class="project-num">04</span>
+              <span class="project-year">2021</span>
             </div>
-            <div class="w-glow">Wellness</div>
+            <h3 class="project-title">Digital wellness that feels calm &amp; intuitive</h3>
+            <div class="project-tags">
+              <span class="project-tag">Health</span>
+              <span class="project-tag">Coaching</span>
+            </div>
+            <p class="project-desc">Aura Health — a digital wellness platform for coaches and clients. Session booking,
+              personalized plans, habit trackers, and a calm, accessible interface.</p>
+            <div class="project-stack-row">
+              <span>ReactJS</span><span>NodeJS</span>
+            </div>
           </div>
-        </div>
-      </article>
+          <div class="project-visual">
+            <div class="visual-wellness">
+              <div class="w-circle">
+                <svg viewBox="0 0 36 36" class="w-ring">
+                  <path class="w-ring-bg"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  <path class="w-ring-stroke" stroke-dasharray="82, 100"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                </svg>
+                <div class="w-score">82%</div>
+              </div>
+              <div class="w-glow">Wellness</div>
+            </div>
+          </div>
+        </article>
+      </div>
 
     </div>
   </section>
@@ -402,20 +682,26 @@
               <div class="polaroid-placeholder">NJ</div>
             </div>
           </div>
+          <!-- Floating badge -->
+          <div class="about-badge">
+            <span class="about-badge-dot"></span>
+            <span>Available for hire</span>
+          </div>
         </div>
 
         <div class="about-content">
           <div class="section-tag"><span class="tag-diamond">✦</span> ABOUT ME</div>
           <h2 class="section-heading about-heading">a little about myself</h2>
 
-          <p class="about-text">
+          <!-- Character-by-character animated paragraphs -->
+          <p class="about-text about-animated-text" id="about-para-1">
             My journey into tech started with curiosity and a love for problem-solving. I've spent <strong>5+
               years</strong> building
             production-grade software — from SaaS platforms to marketplace apps — learning to write code that's not just
             functional, but
             <em>maintainable and scalable</em>.
           </p>
-          <p class="about-text">
+          <p class="about-text about-animated-text" id="about-para-2">
             Today, I work on complex enterprise products using the MERN stack, where I enjoy turning messy requirements
             into clean architectures.
             I'm particularly drawn to problems at the intersection of <strong>user experience, system design, and
@@ -541,6 +827,7 @@
   <section id="contact" aria-label="Contact">
     <div class="container">
       <div class="contact-box">
+        <div class="contact-box-glow" aria-hidden="true"></div>
         <div class="section-tag center light"><span class="tag-diamond">✦</span> LET'S CONNECT</div>
         <h2 class="contact-heading">let's build something<br><em>great together</em></h2>
         <p class="contact-sub">Surat, Gujarat, India · Available for full-time &amp; contract roles</p>
